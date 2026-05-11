@@ -42,7 +42,7 @@ python moe_training.py \
 ```
 
 ### Coordinate Check
-Verifies that key quantities stay O(1) in width — the defining property of a well-parameterized model.
+Verifies that key quantities stay width-independent — the defining property of a well-parameterized model.
 ```bash
 python run_full_coordinate_check.py \
   --configs mup_bottleneck_ours \
@@ -78,17 +78,17 @@ python run_5d_sweep.py \
 
 ## Coordinate Check Metrics
 
-The coordinate check tracks whether key quantities remain **O(1) across model widths**. A configuration passes if all metrics are width-independent:
+The coordinate check tracks whether key quantities remain **model-scale-independent**. A configuration passes if all metrics are width-independent:
 
 | Metric | Definition | Interpretation |
 |--------|-----------|----------------|
-| Effective updates | `‖(W(t)−W(0)) x‖_RMS` | How much training has moved each layer's output |
-| Propagating updates | `‖W(0) Δx‖_RMS` | How feature changes propagate forward through initial weights |
+| Effective updates | `‖(W(t)−W(0)) x‖_RMS` | How much the current layer's weight updates affect the layer's output |
+| Propagating updates | `‖W(0) Δx‖_RMS` | How feature changes propagate forward through each layer's initial weights |
 | Gradient norms | `‖∂L/∂W‖_RMS` | Per-layer gradient scale |
 | Activation RMS | `‖h^l‖_RMS` | Per-layer activation scale |
 | Router gradient | `‖∂L/∂φ‖_RMS` | Loss gradient w.r.t. router pre-activations |
 
-For μP to hold, effective and propagating updates must both be O(1). Gradient norms and activation RMS being O(1) is a necessary but not sufficient condition.
+For μP to hold, effective and propagating updates must both be width independent. Gradient norms and activation RMS being width independent is a necessary but not sufficient condition.
 
 ## Scaling Regimes
 
@@ -97,8 +97,8 @@ Three regimes studied in the paper:
 | Regime | Config prefix | N_expert | M (experts) |
 |--------|--------------|----------|-------------|
 | Fixed-E | `fixed_E_*` | N (scales) | 8 (fixed) |
-| All-Scaling | `*_allscaling_*` | N (scales) | N/16 (scales) |
 | Bottleneck | `*_bottleneck_*` | 16 (fixed) | N/16 (scales) |
+| All-Scaling | `*_allscaling_*` | N (scales) | N/16 (scales) |
 
 ## Key Parameters
 
@@ -173,11 +173,6 @@ python plotting/llm/wandb_rcc_plots.py --project <wandb_project> --config_type <
 
 Fetched data is cached under `results/wandb_cache/` to avoid repeated API calls.
 
-## Datasets
-
-- **CIFAR-10** (default): downloaded automatically on first run
-- **TinyImageNet**: `--dataset tinyimagenet` — downloaded automatically to `data/`
-
 ## Multi-GPU Execution
 
 Experiment runners distribute jobs across GPUs:
@@ -185,4 +180,16 @@ Experiment runners distribute jobs across GPUs:
 --num_gpus 8    # Use 8 GPUs
 --num_gpus -1   # Auto-detect all available GPUs
 --num_gpus 0    # CPU only
+```
+
+## Citation
+If you use this software, or any ideas from our code or paper, please cite the following publication:
+
+```bib
+@article{vankadara2026moescaling,
+  title={How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization},
+  author={Vankadara^*, Leena Chennuru and Haas^*, Moritz and Hayward, Luke and Bordt, Sebastian and Breccia, Alessandro},
+  journal={arXiv:TBA},
+  year={2026}
+}
 ```
