@@ -5,10 +5,7 @@ n_head = 4
 n_embd = 256
 stride = 2  # blocks [dense, MoE, dense, MoE]
 
-# moe (bottleneck: d_hidden = n_embd * moe_ratio = 32, 2x the base bottleneck=16
-# width; n_exp halved so expert params per MoE layer stay constant at 524288.
-# top_k holds the current top_k/n_exp = 1/2 active-fraction of the existing
-# bottleneck/sparse config)
+# moe
 moe_implementation = "nanomoe"
 n_exp = 32
 top_k = 16

@@ -5,9 +5,7 @@ n_head = 32
 n_embd = 2048
 stride = 2  # blocks [dense, MoE, dense, MoE]
 
-# moe (efficient-bottleneck: expert hidden dim = n_embd * moe_ratio = 32, held
-# constant across widths; n_exp scales with N so expert params per MoE layer
-# scale linearly. top_k = n_exp/2 keeps active fraction = 1/2.)
+# moe
 moe_implementation = "nanomoe"
 n_exp = 256
 top_k = 128
