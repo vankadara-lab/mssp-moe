@@ -3,6 +3,11 @@
 Code accompanying the paper:  
 **"How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization"**
 
+## Contents
+
+- [`mlp-moe-experiments/`](mlp-moe-experiments) — MLP MoEs on CIFAR-10 / TinyImageNet for coordinate checks and parameterization studies (documented below).
+- [`transformer-moe-experiments/`](transformer-moe-experiments) — Transformer MoEs trained on OLMo-3 pretraining data. See its [README](transformer-moe-experiments/README.md).
+
 ## Setup
 
 ```bash
@@ -12,7 +17,7 @@ pip install -r requirements.txt
 ## Repository Structure
 
 ```
-moe_scaling/
+mlp-moe-experiments/
 ├── moe_training.py              # MoE model and training loop
 ├── scaling_configs.py           # All scaling configurations (μP, NTP, SP, variants)
 ├── moe_logging.py               # Coordinate-check statistics (effective/propagating updates, etc.)
