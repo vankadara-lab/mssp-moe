@@ -1,10 +1,8 @@
 # Transformer MoE Experiments
 
-LLM-scale MoE experiments from the paper, trained on OLMo-3 pretraining
-data. Forked from [nanoMoE](https://github.com/wolfecameron/nanoMoE) and
+Transformer MoE experiments. Code is based on [nanoMoE](https://github.com/wolfecameron/nanoMoE) and
 [nanoGPT](https://github.com/karpathy/nanoGPT) (see this
-[blog post](https://cameronrwolfe.substack.com/nano-moe) for nanoMoE
-details).
+[blog post](https://cameronrwolfe.substack.com/nano-moe) for nanoMoE).
 
 ## Quick start
 
@@ -26,10 +24,10 @@ All configs share `n_head = n_embd / 64`, sequence length 1024, AdamW,
 | family | scaling | block pattern | configs |
 |---|---|---|---|
 | allscale-soft | `mup_allscale` | every layer MoE, top_k = n_exp | [`config/allscale/soft/`](config/allscale/soft) |
-| **allscale-sparse** ★ | `mup_allscale` | every layer MoE, top-k sparse | [`config/allscale/sparse/`](config/allscale/sparse) |
+| allscale-sparse | `mup_allscale` | every layer MoE, top-k sparse | [`config/allscale/sparse/`](config/allscale/sparse) |
 | bottleneck-soft | `mup_bottleneck` | every layer MoE, many small experts, soft | [`config/bottleneck/soft/`](config/bottleneck/soft) |
 | bottleneck-sparse | `mup_bottleneck` | every layer MoE, many small experts, sparse | [`config/bottleneck/sparse/`](config/bottleneck/sparse) |
-| **efficient-bottleneck sparse-with-dense** ★ | `mup_bottleneck` | alternating dense MLP + bottleneck MoE | [`config/efficient-bottleneck/sparse-with-dense/`](config/efficient-bottleneck/sparse-with-dense) |
+| efficient-bottleneck sparse-with-dense | `mup_bottleneck` | alternating dense MLP + bottleneck MoE | [`config/efficient-bottleneck/sparse-with-dense/`](config/efficient-bottleneck/sparse-with-dense) |
 
 ## Files
 
