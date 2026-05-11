@@ -188,7 +188,7 @@ If you use this software, or any ideas from our code or paper, please cite the f
 ```bib
 @article{vankadara2026moescaling,
   title={How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization},
-  author={Vankadara^*, Leena Chennuru and Haas^*, Moritz and Hayward, Luke and Bordt, Sebastian and Breccia, Alessandro},
+  author={Vankadara, Leena Chennuru and Haas, Moritz and Hayward, Luke and Bordt, Sebastian and Breccia, Alessandro},
   journal={arXiv:TBA},
   year={2026}
 }
