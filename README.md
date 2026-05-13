@@ -1,4 +1,4 @@
-# How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization
+# How to Scale Mixture-of-Experts: From muP to the Maximally Scale-Stable Parameterization
 
 Code accompanying the paper:
 **"How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization"**
