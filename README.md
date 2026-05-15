@@ -1,7 +1,7 @@
 # How to Scale Mixture-of-Experts: From muP to the Maximally Scale-Stable Parameterization
 
 Code accompanying the paper:
-**"How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization"**
+**["How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization"](https://arxiv.org/abs/2605.14200)**
 
 ## Contents
 
@@ -33,7 +33,7 @@ If you use this software, or any ideas from our code or paper, please cite the f
 @article{vankadara2026moescaling,
   title={How to Scale Mixture-of-Experts: From μP to the Maximally Scale-Stable Parameterization},
   author={Chennuru Vankadara, Leena and Haas, Moritz and Hayward, Luke and Bordt, Sebastian and Breccia, Alessandro},
-  journal={arXiv:TBA},
+  journal={arXiv:2605.14200},
   year={2026}
 }
 ```
