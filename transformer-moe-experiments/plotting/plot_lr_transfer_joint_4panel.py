@@ -24,7 +24,7 @@ import wandb
 
 
 ENTITY = os.environ.get("WANDB_ENTITY", "")
-OUT_DIR = Path(__file__).resolve().parent.parent.parent / "results" / "llm_lr_transfer"
+OUT_DIR = Path(__file__).resolve().parent.parent / "results" / "llm_lr_transfer"
 
 # Allscale warmup config (shared by both allscale projects)
 ALLSCALE_LARGE_WIDTH = 2048

@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Cache directory
-CACHE_DIR = Path(__file__).resolve().parent.parent.parent / 'results' / 'wandb_cache'
+CACHE_DIR = Path(__file__).resolve().parent.parent / 'results' / 'wandb_cache'
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # RCC type registry with key patterns and labels
