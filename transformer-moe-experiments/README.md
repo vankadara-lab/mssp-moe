@@ -41,3 +41,19 @@ All configs share `n_head = n_embd / 64`, sequence length 1024, AdamW,
 | `scaling.py` | scaling classes (`MupAllScale`, `MupBottleneck`, …) and `classify_parameter` |
 | `manager.py` | global stats singleton used by MoE layers |
 | `configurator.py` | exec's a config file, then applies `--key=value` overrides |
+
+
+### LLM experiment plots (WandB)
+
+Scripts in `plotting/` reproduce the LLM-scale figures from the paper. They fetch data
+directly from WandB and require a `wandb login`. Set your WandB entity via `WANDB_ENTITY` (or
+pass `--entity` to `plot_lr_transfer_joint_4panel.py`).
+
+```bash
+export WANDB_ENTITY=your_entity
+
+python plotting/plot_lr_transfer_joint_4panel.py
+python plotting/wandb_rcc_plots.py --project <wandb_project> --config_type <bottleneck|allscale|fixedE>
+```
+
+Fetched data is cached under `results/wandb_cache/`.
