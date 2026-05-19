@@ -37,4 +37,3 @@ If you use this software, or any ideas from our code or paper, please cite the f
   year={2026}
 }
 ```
-**Link to the paper:** [https://arxiv.org/abs/2605.14200]
