@@ -240,6 +240,23 @@ class MuPMSSPAdamAllScalingConfig(AllScalingBase):
 
     def get_default_alpha(self):
         return 1.0
+    
+
+class MuPJiangAdamAllScalingConfig(AllScalingBase):
+    """μP Adam with all scaling (ours): M, N, N_expert scale proportionally"""
+    def get_init_scale(self, param_name, N, M, N_expert, fanin, fanout):
+        if param_name in ['w_out', 'w_router']:
+            return 1.0 / N
+        return 1.0 / np.sqrt(fanin)
+
+    def get_lr_scale(self, param_name, N, M, N_expert, base_lr, fanin):
+        return base_lr / fanin
+
+    def get_adam_eps_scale(self, param_name, N, M, N_expert):
+        return 1
+
+    def get_default_alpha(self):
+        return 1.0
 
 
 # ============================================================================
@@ -416,8 +433,11 @@ CONFIGS = {
     'mup_stdinit_allscaling_multfree': MuPMSSPAllScalingConfig('mup_stdinit_allscaling_multfree'), # SGD mup baseline and ours when sharing expert init
     'ntp_allscaling': NTPAllScalingConfig('ntp_allscaling'),
     'mup_adam_allscaling_stdinit_ours': MuPMSSPAdamAllScalingConfig('mup_adam_allscaling_stdinit_ours'), # Adam mup baseline and ours when sharing expert init
+    'mup_adam_jiang_allscaling_multfree': MuPJiangAdamAllScalingConfig('mup_adam_jiang_allscaling_multfree'), # Jiang-style muP-Adam (router 1/N, global Adam epsilon)
     'mup_adam_globaleps_allscaling_multfree': MuPAdamAllScalingGlobalEpsConfig('mup_adam_globaleps_allscaling_multfree'), # Adam second baseline
 }
+
+
 
 def get_config(name):
     """Get a scaling configuration by name"""
