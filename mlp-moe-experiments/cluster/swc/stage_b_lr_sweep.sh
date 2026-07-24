@@ -40,7 +40,6 @@ python run_lr_sweep.py \
 
 echo "[stage-b] plotting LR sweep"
 python plotting/plot_lr_sweep.py \
-  --results_dir "${LR_SWEEP_DIR}" \
-  --config "${JIANG_CONFIG}" || echo "[stage-b] plot_lr_sweep exited non-zero (continuing)"
+  --results_dir "${LR_SWEEP_DIR}" || echo "[stage-b] plot_lr_sweep exited non-zero (continuing)"
 
 echo "[stage-b] done"
