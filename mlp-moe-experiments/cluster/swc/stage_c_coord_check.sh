@@ -9,8 +9,8 @@
 #SBATCH --output=/nfs/ghome/live/mhaas/sebastian/logs/mssp-moe/coord-%j.out
 #SBATCH --error=/nfs/ghome/live/mhaas/sebastian/logs/mssp-moe/coord-%j.err
 
-SDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${SDIR}/common.sh"
+set -e
+source /nfs/ghome/live/mhaas/mssp-moe/mlp-moe-experiments/cluster/swc/common.sh
 activate_venv
 
 cd "${MSSP_MLP}"

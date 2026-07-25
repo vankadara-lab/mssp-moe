@@ -3,7 +3,7 @@
 # Prints jobids and returns.
 
 set -euo pipefail
-SDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SDIR=/nfs/ghome/live/mhaas/mssp-moe/mlp-moe-experiments/cluster/swc
 
 echo "[submit] stage A (6D sweep)"
 JID_A=$(sbatch --parsable "${SDIR}/stage_a_6d_sweep.sh")

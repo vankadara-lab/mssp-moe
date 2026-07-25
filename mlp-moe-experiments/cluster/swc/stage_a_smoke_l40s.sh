@@ -11,8 +11,8 @@
 # Small end-to-end test of Stage A on L40S: 2^3 = 8 configs at N=128, T=200.
 # Only exercises the sweep runner + moe_training + result serialization.
 
-SDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${SDIR}/common.sh"
+set -e
+source /nfs/ghome/live/mhaas/mssp-moe/mlp-moe-experiments/cluster/swc/common.sh
 activate_venv
 
 cd "${MSSP_MLP}"
